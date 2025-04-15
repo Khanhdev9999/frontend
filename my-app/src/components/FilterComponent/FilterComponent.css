@@ -1,0 +1,49 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.filter-container {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.filter-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.filter-options {
+    display: flex;
+    justify-content: center; /* Mặc định: Align to the left */
+    gap: 5px;
+    flex-wrap: wrap; /* Cho phép các nút lọc tự động xuống dòng khi không đủ chỗ */
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 8px 26px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: large;
+}
+
+.filter-btn:hover {
+    background-color: #f1f3f4;
+}
+
+.filter-btn.active {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+}
+

@@ -1,0 +1,324 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Feature Cards Styles */
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    gap: 20px; /* Adjust the gap between cards */
+    justify-items: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.feature-card {
+    width: 100%; /* Make card full width within each grid column */
+    max-width: 280px; /* Adjust maximum width of each card */
+    height: 350px; /* Adjust the height of the card */
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+}
+
+.feature-img {
+    width: 100%;
+    height: 170px; /* Set image height */
+    border-radius: 12px;
+    object-fit: cover; /* Ensure image fits within the container */
+}
+
+.feature-content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.feature-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature-desc {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Button styles */
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    align-self: flex-end; /* Align button to the right */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Modal styles */
+.modal {
+    display: block; /* Show the modal */
+    position: fixed;
+    z-index: 999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.6); /* Black with transparency */
+    overflow: auto; /* Enable scroll if needed */
+    padding: 20px; /* Add padding for better positioning */
+    backdrop-filter: blur(5px); /* Apply blur to background */
+}
+
+.modal-content {
+    display: flex;
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 900px; /* Set max width for better control */
+    box-shadow: 0px 0px 20px rgba(8, 233, 229, 0.3);
+    position: relative; /* Ensure the close button is positioned properly */
+}
+
+.modal-text {
+    flex: 1; /* Text part takes up equal space */
+    padding-right: 20px; /* Space between text and image */
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-text h2 {
+    font-size: 22px;
+    color: #333;
+    font-weight: 500;
+}
+
+.modal-text h3 {
+    font-size: 18px;
+    color: #007bff;
+    margin-top: 15px;
+}
+
+.modal-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+.modal-image {
+    flex: 1; /* Image part takes up equal space */
+    display: flex;
+    justify-content: center; /* Center the image inside the container */
+    align-items: center;
+}
+
+.modal-image img {
+    max-width: 500%; /* Đảm bảo ảnh không vượt quá chiều rộng của container */
+    max-height: 500px; /* Giới hạn chiều cao của ảnh */
+    width: 600px;  /* Đặt chiều rộng ảnh cố định */
+    height: 600px; /* Đặt chiều cao ảnh cố định */
+    object-fit: cover; /* Đảm bảo ảnh được cắt và phóng đại cho đến khi vừa khít với container */
+    border-radius: 12px; /* Giữ bo góc nếu cần */
+}
+
+/* Close Button */
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: black;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: auto; /* Push buttons to the bottom */
+    padding: 10px 0;
+}
+
+.modal-buttons .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    flex: 1;
+}
+
+.modal-buttons .btn.green {
+    background-color: #28a745; /* Green button */
+}
+
+.modal-buttons .btn.orange {
+    background-color: #fd7e14; /* Orange button */
+}
+
+.modal-buttons .btn:hover {
+    background-color: #0056b3;
+}
+
+.modal-buttons .btn.green:hover {
+    background-color: #218838;
+}
+
+.modal-buttons .btn.orange:hover {
+    background-color: #e46c00;
+}
+
+
+/* General Styles */
+.support-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .support-table th {
+    background-color: #5a8dff;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    text-align: left;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .support-table td {
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Add alternating row colors */
+  .support-table tr:nth-child(even) {
+    background-color: #f4f6f9;
+  }
+  
+  /* Styling for labels */
+  .support-table .label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Styling for the value cells */
+  .support-table .value {
+    color: #007bff;
+  }
+  
+  /* Payment Icons Styles */
+  .payment-icons img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  /* Extra info styling */
+  .support-table .extra-info {
+    background-color: #ff9800;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .support-table {
+      width: 100%;
+    }
+  
+    .support-table th, .support-table td {
+      font-size: 12px;
+      padding: 10px;
+    }
+  
+    .support-table .payment-icons img {
+      width: 30px;
+    }
+  }
+
+/* Responsive Styles */
+
+/* For screens smaller than 1200px */
+@media (max-width: 1200px) {
+    .feature-cards {
+        grid-template-columns: 1fr 1fr 1fr; /* Keep 3 columns but with a smaller gap */
+    }
+
+    .modal-content {
+        width: 90%; /* Increase modal width for smaller screens */
+    }
+}
+
+/* For screens smaller than 1000px */
+@media (max-width: 1098px) {
+    .feature-cards {
+        grid-template-columns: 1fr 1fr; /* 2 columns */
+        gap: 15px; /* Adjust gap */
+    }
+
+    .feature-card {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+}
+
+/* For screens smaller than 900px */
+@media (max-width: 760px) {
+    .feature-cards {
+        grid-template-columns: 1fr; /* 1 column */
+        gap: 20px; /* Increase gap */
+    }
+
+    .feature-card {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 100%;
+    }
+}
