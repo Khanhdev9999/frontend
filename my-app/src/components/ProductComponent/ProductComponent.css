@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Inter, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
@@ -9,17 +9,17 @@ body {
 /* Feature Cards Styles */
 .feature-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
-    gap: 20px; /* Adjust the gap between cards */
+    grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+    gap: 20px; /* Space between products */
     justify-items: center;
     margin-bottom: 40px;
     padding: 0 20px;
 }
 
 .feature-card {
-    width: 100%; /* Make card full width within each grid column */
-    max-width: 280px; /* Adjust maximum width of each card */
-    height: 350px; /* Adjust the height of the card */
+    width: 100%;
+    max-width: 280px;
+    height: 350px;
     background-color: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -38,9 +38,9 @@ body {
 
 .feature-img {
     width: 100%;
-    height: 170px; /* Set image height */
+    height: 170px;
     border-radius: 12px;
-    object-fit: cover; /* Ensure image fits within the container */
+    object-fit: cover;
 }
 
 .feature-content {
@@ -73,85 +73,46 @@ body {
     font-size: 24px;
     cursor: pointer;
     border: none;
-    align-self: flex-end; /* Align button to the right */
+    align-self: flex-end;
 }
 
 .btn:hover {
     background-color: #0056b3;
 }
 
-/* Modal styles */
+/* Modal Styles */
 .modal {
-    display: block; /* Show the modal */
+    display: none;
     position: fixed;
-    z-index: 999; /* Sit on top */
-    left: 0;
+    z-index: 999;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0, 0, 0, 0.6); /* Black with transparency */
-    overflow: auto; /* Enable scroll if needed */
-    padding: 20px; /* Add padding for better positioning */
-    backdrop-filter: blur(5px); /* Apply blur to background */
-    display: flex;
-    justify-content: center; /* Center the modal horizontally */
-    align-items: center; /* Center the modal vertically */
-}
-
-/* Modal content */
-.modal-content {
-    display: flex;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    width: 80%;
-    max-width: 900px; /* Set max width for better control */
-    box-shadow: 0px 0px 20px rgba(8, 233, 229, 0.3);
-    position: relative;
-}
-
-/* Modal text */
-.modal-text {
-    flex: 1;
-    padding-right: 20px;
-    text-align: left;
-    font-family: 'Roboto', sans-serif;
-}
-
-.modal-text h2 {
-    font-size: 22px;
-    color: #333;
-    font-weight: 500;
-}
-
-.modal-text h3 {
-    font-size: 18px;
-    color: #007bff;
-    margin-top: 15px;
-}
-
-.modal-text p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.5;
-    margin-top: 10px;
-}
-
-.modal-image {
-    flex: 1;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.modal-image img {
-    max-width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 12px;
+.modal.show {
+    display: flex;
 }
 
-/* Close Button */
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0px 0px 20px rgba(8, 233, 229, 0.3);
+    position: relative;
+    display: flex;
+    gap: 20px;
+}
+
+/* Close button */
 .close-btn {
     color: #aaa;
     font-size: 28px;
@@ -166,25 +127,103 @@ body {
     color: black;
 }
 
-/* Modal Buttons */
-.modal-buttons {
+/* Modal Layout: left for text and right for image */
+.modal-body {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
+}
+
+.modal-text {
+    flex: 1;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.modal-title {
+    font-size: 24px;
+    color: #e58800;
+    font-weight: bold;
+}
+
+.modal-desc {
+    font-size: 18px;
+    color: #333;
+}
+
+.modal-table {
+    margin-top: 20px;
+}
+
+.modal-table td {
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 16px;
+    color: #555;
+}
+
+.modal-table td strong {
+    font-weight: bold;
+}
+
+.modal-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.modal-table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.modal-table td {
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-table td:last-child {
+    text-align: left;
+}
+
+.modal-price {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 20px;
+    color: #e58800;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #bbb;
+}
+
+.discounted-price {
+    font-weight: bold;
+}
+
+.modal-buttons {
+    display: flex;
     gap: 10px;
     margin-top: auto;
     padding: 10px 0;
 }
 
+/* Modal Buttons Styles */
 .modal-buttons .btn {
-    background-color: #007bff;
+    background-color: #007bff; /* Blue */
     color: white;
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 12px;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
     border: none;
     text-align: center;
-    flex: 1;
+    width: auto;
+    white-space: nowrap;  /* Prevent text from wrapping */
+    transition: background-color 0.3s ease;
+}
+
+.modal-buttons .btn:hover {
+    background-color: #0056b3;  /* Darker blue on hover */
 }
 
 .modal-buttons .btn.green {
@@ -195,142 +234,64 @@ body {
     background-color: #fd7e14; /* Orange button */
 }
 
-.modal-buttons .btn:hover {
-    background-color: #0056b3;
-}
-
 .modal-buttons .btn.green:hover {
-    background-color: #218838;
+    background-color: #218838; /* Darker green on hover */
 }
 
 .modal-buttons .btn.orange:hover {
-    background-color: #e46c00;
+    background-color: #e46c00; /* Darker orange on hover */
 }
 
-/* Support Table */
-.support-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
+/* Modal Content Layout */
+.modal-body {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.support-table th {
-    background-color: #5a8dff;
-    color: white;
-    padding: 10px;
-    font-size: 18px;
+.modal-text {
+    flex: 1;
+    padding-right: 20px;
     text-align: left;
-    border-radius: 8px 8px 0 0;
 }
 
-.support-table td {
-    padding: 12px 15px;
-    font-size: 14px;
-    color: #555;
-    border-bottom: 1px solid #ddd;
+/* Aligning the buttons to the left half of the modal */
+.modal-buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align buttons to the left */
+    gap: 10px; /* Space between buttons */
+    padding-right: 30px;
+    width: 45%;  /* Make sure buttons are in the left side of the modal */
 }
 
-.support-table tr:nth-child(even) {
-    background-color: #f4f6f9;
+.modal-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.support-table .label {
-    font-weight: bold;
-    color: #333;
-}
-
-.support-table .value {
-    color: #007bff;
-}
-
-.payment-icons img {
-    width: 40px;
+.modal-image img {
+    width: 100%;
     height: auto;
-    margin-right: 10px;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 12px;
 }
 
-.support-table .extra-info {
-    background-color: #ff9800;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-/* Responsive Styles */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .support-table {
-        width: 100%;
+    .modal-body {
+        flex-direction: column;
     }
 
-    .support-table th, .support-table td {
-        font-size: 12px;
-        padding: 10px;
+    .modal-buttons-wrapper {
+        width: 100%; /* Allow buttons to take full width on smaller screens */
+        margin-bottom: 20px;
     }
 
-    .support-table .payment-icons img {
-        width: 30px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .feature-cards {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-@media (max-width: 1098px) {
-    .feature-cards {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .feature-card {
-        width: 100%;
-    }
-
-    .modal-content {
-        width: 80%;
-    }
-}
-
-@media (max-width: 760px) {
-    .feature-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .feature-card {
-        width: 100%;
-    }
-
-    .modal-content {
-        width: 100%;
-    }
-}
-
-
-
-/* Responsive Styles for small screens */
-@media (max-width: 375px) {
-    /* Modal content adjustments for very small screens (e.g., iPhone SE) */
-    .modal-content {
-        width: 95%; /* Ensure modal content doesn't stretch too much on small screens */
-        max-width: 350px; /* Set max width to fit within screen */
-    }
-
-    .modal-text h2 {
-        font-size: 16px; /* Adjust font size for small screens */
-    }
-
-    .modal-text h3 {
-        font-size: 14px; /* Adjust font size for small screens */
-    }
-
-    .modal-text p {
-        font-size: 12px; /* Adjust font size for small screens */
-    }
-
-    .modal-image img {
-        max-height: 180px; /* Limit image height for very small screens */
+    .modal-image {
+        margin-top: 20px; /* Adjust image margin for smaller screens */
     }
 }
