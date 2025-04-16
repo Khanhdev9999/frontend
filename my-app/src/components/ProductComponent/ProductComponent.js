@@ -156,26 +156,20 @@ const ProductComponent = () => {
         </tr>
         <tr>
           
-          <td className="value">
+          {/* <td className="value">
             <span className="payment-icons">
               <img src="binance-logo.png" alt="Binance" />
               <img src="paypal-logo.png" alt="PayPal" />
               <img src="visa-logo.png" alt="Visa" />
               <img src="vietqr-logo.png" alt="VietQR" />
             </span>
-          </td>
+          </td> */}
         </tr>
         <tr>
           <td colSpan="2" className="extra-info">Đối với thiết bị iPad bạn sẽ được "Miễn Phí" hoàn toàn</td>
         </tr>
       </tbody>
-    </table>
-  
-
-
-
-
-                
+    </table>                
               <div className="modal-buttons">
               <button className="btn">MUA CHO THIẾT BỊ NÀY</button>
               <button className="btn green">MUA CHO THIẾT BỊ KHÁC</button>

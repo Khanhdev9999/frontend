@@ -93,23 +93,27 @@ body {
     overflow: auto; /* Enable scroll if needed */
     padding: 20px; /* Add padding for better positioning */
     backdrop-filter: blur(5px); /* Apply blur to background */
+    display: flex;
+    justify-content: center; /* Center the modal horizontally */
+    align-items: center; /* Center the modal vertically */
 }
 
+/* Modal content */
 .modal-content {
     display: flex;
     background-color: #fff;
-    margin: 10% auto;
     padding: 20px;
     border-radius: 20px;
     width: 80%;
     max-width: 900px; /* Set max width for better control */
     box-shadow: 0px 0px 20px rgba(8, 233, 229, 0.3);
-    position: relative; /* Ensure the close button is positioned properly */
+    position: relative;
 }
 
+/* Modal text */
 .modal-text {
-    flex: 1; /* Text part takes up equal space */
-    padding-right: 20px; /* Space between text and image */
+    flex: 1;
+    padding-right: 20px;
     text-align: left;
     font-family: 'Roboto', sans-serif;
 }
@@ -134,19 +138,17 @@ body {
 }
 
 .modal-image {
-    flex: 1; /* Image part takes up equal space */
+    flex: 1;
     display: flex;
-    justify-content: center; /* Center the image inside the container */
+    justify-content: center;
     align-items: center;
 }
 
 .modal-image img {
-    max-width: 500%; /* Đảm bảo ảnh không vượt quá chiều rộng của container */
-    max-height: 500px; /* Giới hạn chiều cao của ảnh */
-    width: 600px;  /* Đặt chiều rộng ảnh cố định */
-    height: 600px; /* Đặt chiều cao ảnh cố định */
-    object-fit: cover; /* Đảm bảo ảnh được cắt và phóng đại cho đến khi vừa khít với container */
-    border-radius: 12px; /* Giữ bo góc nếu cần */
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 /* Close Button */
@@ -169,7 +171,7 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    margin-top: auto; /* Push buttons to the bottom */
+    margin-top: auto;
     padding: 10px 0;
 }
 
@@ -205,97 +207,82 @@ body {
     background-color: #e46c00;
 }
 
-
-/* General Styles */
+/* Support Table */
 .support-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-  }
-  
-  .support-table th {
+}
+
+.support-table th {
     background-color: #5a8dff;
     color: white;
     padding: 10px;
     font-size: 18px;
     text-align: left;
     border-radius: 8px 8px 0 0;
-  }
-  
-  .support-table td {
+}
+
+.support-table td {
     padding: 12px 15px;
     font-size: 14px;
     color: #555;
     border-bottom: 1px solid #ddd;
-  }
-  
-  /* Add alternating row colors */
-  .support-table tr:nth-child(even) {
+}
+
+.support-table tr:nth-child(even) {
     background-color: #f4f6f9;
-  }
-  
-  /* Styling for labels */
-  .support-table .label {
+}
+
+.support-table .label {
     font-weight: bold;
     color: #333;
-  }
-  
-  /* Styling for the value cells */
-  .support-table .value {
+}
+
+.support-table .value {
     color: #007bff;
-  }
-  
-  /* Payment Icons Styles */
-  .payment-icons img {
+}
+
+.payment-icons img {
     width: 40px;
     height: auto;
     margin-right: 10px;
-  }
-  
-  /* Extra info styling */
-  .support-table .extra-info {
+}
+
+.support-table .extra-info {
     background-color: #ff9800;
     color: white;
     text-align: center;
     padding: 15px;
     font-weight: bold;
     border-radius: 5px;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .support-table {
-      width: 100%;
-    }
-  
-    .support-table th, .support-table td {
-      font-size: 12px;
-      padding: 10px;
-    }
-  
-    .support-table .payment-icons img {
-      width: 30px;
-    }
-  }
+}
 
 /* Responsive Styles */
-
-/* For screens smaller than 1200px */
-@media (max-width: 1200px) {
-    .feature-cards {
-        grid-template-columns: 1fr 1fr 1fr; /* Keep 3 columns but with a smaller gap */
+@media (max-width: 768px) {
+    .support-table {
+        width: 100%;
     }
 
-    .modal-content {
-        width: 90%; /* Increase modal width for smaller screens */
+    .support-table th, .support-table td {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .support-table .payment-icons img {
+        width: 30px;
     }
 }
 
-/* For screens smaller than 1000px */
+@media (max-width: 1200px) {
+    .feature-cards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
 @media (max-width: 1098px) {
     .feature-cards {
-        grid-template-columns: 1fr 1fr; /* 2 columns */
-        gap: 15px; /* Adjust gap */
+        grid-template-columns: 1fr 1fr;
     }
 
     .feature-card {
@@ -307,11 +294,9 @@ body {
     }
 }
 
-/* For screens smaller than 900px */
 @media (max-width: 760px) {
     .feature-cards {
-        grid-template-columns: 1fr; /* 1 column */
-        gap: 20px; /* Increase gap */
+        grid-template-columns: 1fr;
     }
 
     .feature-card {
@@ -320,5 +305,32 @@ body {
 
     .modal-content {
         width: 100%;
+    }
+}
+
+
+
+/* Responsive Styles for small screens */
+@media (max-width: 375px) {
+    /* Modal content adjustments for very small screens (e.g., iPhone SE) */
+    .modal-content {
+        width: 95%; /* Ensure modal content doesn't stretch too much on small screens */
+        max-width: 350px; /* Set max width to fit within screen */
+    }
+
+    .modal-text h2 {
+        font-size: 16px; /* Adjust font size for small screens */
+    }
+
+    .modal-text h3 {
+        font-size: 14px; /* Adjust font size for small screens */
+    }
+
+    .modal-text p {
+        font-size: 12px; /* Adjust font size for small screens */
+    }
+
+    .modal-image img {
+        max-height: 180px; /* Limit image height for very small screens */
     }
 }

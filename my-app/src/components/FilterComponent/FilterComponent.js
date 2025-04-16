@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import './FilterComponent.css';  // Import CSS
 
-// Import FeatureComponent
 
 
 const FilterComponent = () => {
@@ -71,11 +70,6 @@ const FilterComponent = () => {
           Di Động
         </button>
       </div>
-
-   
-
-      
-     
     </div>
   );
 };

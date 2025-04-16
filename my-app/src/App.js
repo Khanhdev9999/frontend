@@ -11,6 +11,7 @@ function App() {
       <HomePage /> {/* Render the HomePage Component */}
       <FilterComponent /> {/* Render the FilterComponent */}
       <ProductComponent /> {/* Render the ProductComponent */}
+   
     </div>
   );
 }
