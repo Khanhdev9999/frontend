@@ -1,0 +1,226 @@
+/* Overlay modal */
+.product-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+}
+
+/* Modal container */
+.product-modal-content {
+  background: #fff;
+  border-radius: 20px;
+  max-width: 1100px;
+  width: 95%;
+  padding: 30px;
+  position: relative;
+}
+
+/* Chia đôi layout */
+.modal-body {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* BÊN TRÁI - Text chính */
+.modal-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #202124;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Tiêu đề chính */
+.modal-text h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+/* Đoạn mô tả đầu tiên */
+.modal-text > p {
+  font-size: 15px;
+  color: #3c4043;
+  margin: 0 0 16px 0;
+  line-height: 1.6;
+}
+
+/* Phần tiêu đề phụ iOS/Android */
+.modal-text h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0 8px;
+  color: #202124;
+}
+
+/* Danh sách hướng dẫn */
+.modal-text ol {
+  padding-left: 20px;
+  margin: 0 0 8px 0;
+}
+
+.modal-text li {
+  font-size: 14px;
+  color: #3c4043;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+/* Ghi chú cuối */
+.note {
+  background-color: #fef3c7;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-style: italic;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #5f370e;
+  line-height: 1.5;
+}
+
+/* Text nhấn mạnh hoặc mô phỏng link */
+.modal-text li strong,
+.modal-text li b {
+  font-weight: 600;
+}
+
+.modal-text li a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* BÊN PHẢI - Gộp ảnh + nút */
+.modal-side-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Ảnh minh họa */
+.modal-image-container {
+  background-color: #e8f0fe;
+  padding: 0;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0; /* vì container đã bo góc */
+}
+
+/* Nút đóng */
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Ghi chú */
+.note {
+  background-color: #fef3c7;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+/* Nút hành động (cùng hàng) */
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;         /* 👉 nằm ngang */
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;             /* 👉 tự xuống hàng nếu hẹp */
+  justify-content: center;     /* 👉 hoặc flex-start / space-between */
+}
+
+.btn {
+  flex: 1;                     /* 👉 chia đều chiều rộng */
+  min-width: 150px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #1d4ed8;
+  color: white;
+  transition: background 0.2s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #2563eb;
+}
+
+.btn.green {
+  background-color: #059669;
+}
+
+.btn.green:hover {
+  background-color: #047857;
+}
+
+.btn.orange {
+  background-color: #f97316;
+}
+
+.btn.orange:hover {
+  background-color: #ea580c;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+  .modal-body {
+    flex-direction: column;
+  }
+
+  .modal-side-content {
+    margin-top: 20px;
+  }
+
+  .modal-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .modal-image-container {
+    border-radius: 20px;
+  }
+
+  .modal-buttons {
+    flex-direction: column; /* 👉 chuyển lại dạng cột trên mobile */
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

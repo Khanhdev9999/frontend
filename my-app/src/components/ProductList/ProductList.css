@@ -1,0 +1,12 @@
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+
+  width: 100%;
+  max-width: 1200px;   /* Chiều rộng tối đa */
+  margin-left: auto;   /* Căn giữa */
+  margin-right: auto;  /* Căn giữa */
+  box-sizing: border-box;
+}

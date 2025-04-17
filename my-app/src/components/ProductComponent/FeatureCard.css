@@ -35,16 +35,34 @@
 }
 
 .feature-title {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 6px;
 }
 
-.feature-desc {
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 20px;
+.feature-usd {
+    font-size: 14px;
+    color: #18aa8d;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.feature-vnd {
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 16px;
+}
+
+.price-sale {
+    color: #e53935;
+    font-weight: bold;
+}
+
+.price-original {
+    text-decoration: line-through;
+    color: #999;
+    margin-left: 8px;
 }
 
 .btn {
@@ -56,6 +74,7 @@
     cursor: pointer;
     border: none;
     align-self: flex-end;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
@@ -64,56 +83,56 @@
 
 /* Responsive Styles */
 
-/* Desktop and larger screens */
 @media (min-width: 1200px) {
     .feature-cards {
-        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Tablets and medium-sized screens */
 @media (max-width: 1199px) and (min-width: 768px) {
     .feature-cards {
-        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .feature-card {
-        max-width: 300px; /* Adjust the width for medium screens */
-        height: 320px; /* Adjust height for better layout */
+        max-width: 300px;
+        height: 320px;
     }
 }
 
-/* Small screens like mobile phones */
 @media (max-width: 767px) {
     .feature-cards {
-        grid-template-columns: 1fr; /* 1 item per row */
+        grid-template-columns: 1fr;
     }
 
     .feature-card {
-        max-width: 100%; /* Ensure cards take up full width on small screens */
-        height: auto; /* Auto height for better flexibility */
-        margin-bottom: 20px; /* Add space between cards */
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
     }
 
     .feature-img {
-        height: 150px; /* Adjust image height for small screens */
+        height: 150px;
     }
 
     .feature-title {
-        font-size: 14px; /* Adjust title size for mobile */
+        font-size: 16px;
     }
 
-    .feature-desc {
-        font-size: 10px; /* Adjust description size for mobile */
+    .feature-usd {
+        font-size: 12px;
+    }
+
+    .feature-vnd {
+        font-size: 11px;
     }
 
     .btn {
-        font-size: 18px; /* Make button text smaller for mobile */
-        padding: 6px 12px; /* Adjust button size */
+        font-size: 20px;
+        padding: 6px 12px;
     }
 }
 
-/* iPhone SE and smaller screens */
 @media (max-width: 375px) {
     .feature-card {
         max-width: 100%;
@@ -121,19 +140,23 @@
     }
 
     .feature-img {
-        height: 120px; /* Adjust image height for very small screens */
+        height: 120px;
     }
 
     .feature-title {
-        font-size: 12px; /* Further reduce title font size */
+        font-size: 14px;
     }
 
-    .feature-desc {
-        font-size: 8px; /* Further reduce description font size */
+    .feature-usd {
+        font-size: 10px;
+    }
+
+    .feature-vnd {
+        font-size: 10px;
     }
 
     .btn {
-        font-size: 16px; /* Further reduce button font size */
-        padding: 5px 10px; /* Further adjust button size */
+        font-size: 18px;
+        padding: 5px 10px;
     }
 }
