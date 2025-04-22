@@ -12,7 +12,8 @@
             <span className="price-sale">{price}</span>
             <span className="price-original">{originalPrice}</span>
           </p>
-          <button className="btn" onClick={onClick}>+</button>
+          <button className="feature-btn" onClick={onClick}>+</button>
+
         </div>
       </div>
       

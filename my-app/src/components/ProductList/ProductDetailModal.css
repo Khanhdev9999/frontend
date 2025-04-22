@@ -16,21 +16,23 @@
 .product-modal-content {
   background: #fff;
   border-radius: 20px;
-  max-width: 1100px;
+  max-width: 1000px;
   width: 95%;
   padding: 30px;
+  margin-top: 40px;
   position: relative;
+  min-height: 500px;
 }
 
-/* Chia đôi layout */
+/* Layout chia đôi */
 .modal-body {
   display: flex;
   flex-direction: row;
   gap: 40px;
-  align-items: flex-start;
+  align-items: center;
 }
 
-/* BÊN TRÁI - Text chính */
+/* BÊN TRÁI - Nội dung text */
 .modal-text {
   flex: 1;
   min-width: 0;
@@ -42,22 +44,32 @@
   font-family: 'Roboto', sans-serif;
 }
 
-/* Tiêu đề chính */
+.modal-text h2 {
+  font-size: 12px;
+  line-height: 0.6875rem;
+  color: #1f1f1f;
+  background-color: #d3e3fd;
+  border-radius: 4px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  padding: 8px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
 .modal-text h3 {
-  font-size: 22px;
-  font-weight: 600;
-  margin: 0 0 8px 0;
+  font-weight: 500;
+  margin: 8px 0 16px;
+  font-size: 2rem;
+  line-height: 2.75rem;
 }
 
-/* Đoạn mô tả đầu tiên */
 .modal-text > p {
-  font-size: 15px;
-  color: #3c4043;
-  margin: 0 0 16px 0;
-  line-height: 1.6;
+  font-family: "Google Sans Text", arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75rem;
 }
 
-/* Phần tiêu đề phụ iOS/Android */
 .modal-text h4 {
   font-size: 16px;
   font-weight: 600;
@@ -65,32 +77,20 @@
   color: #202124;
 }
 
-/* Danh sách hướng dẫn */
-.modal-text ol {
-  padding-left: 20px;
-  margin: 0 0 8px 0;
-}
-
-.modal-text li {
+.modal-text h6 {
   font-size: 14px;
+  font-weight: 500;
+  margin: 6px 0;
   color: #3c4043;
-  margin-bottom: 4px;
   line-height: 1.5;
 }
 
-/* Ghi chú cuối */
-.note {
-  background-color: #fef3c7;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-style: italic;
-  margin-top: 16px;
-  font-size: 14px;
-  color: #5f370e;
-  line-height: 1.5;
+.dot-group {
+  text-align: center;
+  font-size: 8px;
+  color: #555;
 }
 
-/* Text nhấn mạnh hoặc mô phỏng link */
 .modal-text li strong,
 .modal-text li b {
   font-weight: 600;
@@ -102,15 +102,24 @@
   font-weight: 500;
 }
 
-/* BÊN PHẢI - Gộp ảnh + nút */
+.note {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-style: italic;
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* BÊN PHẢI - Ảnh + Nút */
 .modal-side-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
 }
 
-/* Ảnh minh họa */
 .modal-image-container {
   background-color: #e8f0fe;
   padding: 0;
@@ -120,16 +129,17 @@
   align-items: center;
   justify-content: center;
   height: 300px;
+  flex-shrink: 0;
 }
 
 .modal-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0; /* vì container đã bo góc */
+  object-position: center center;
+  border-radius: 0;
 }
 
-/* Nút đóng */
 .modal-close {
   position: absolute;
   top: 16px;
@@ -140,28 +150,19 @@
   cursor: pointer;
 }
 
-/* Ghi chú */
-.note {
-  background-color: #fef3c7;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-style: italic;
-  margin-top: 10px;
-}
-
-/* Nút hành động (cùng hàng) */
 .modal-buttons {
   margin-top: 20px;
   display: flex;
-  flex-direction: row;         /* 👉 nằm ngang */
+  flex-direction: row;
+  margin-top: 140px;
   gap: 10px;
   width: 100%;
-  flex-wrap: wrap;             /* 👉 tự xuống hàng nếu hẹp */
-  justify-content: center;     /* 👉 hoặc flex-start / space-between */
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btn {
-  flex: 1;                     /* 👉 chia đều chiều rộng */
+  flex: 1;
   min-width: 150px;
   padding: 12px 16px;
   border: none;
@@ -173,6 +174,9 @@
   color: white;
   transition: background 0.2s ease;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn:hover {
@@ -195,7 +199,6 @@
   background-color: #ea580c;
 }
 
-/* Responsive cho mobile */
 @media (max-width: 768px) {
   .modal-body {
     flex-direction: column;
@@ -203,24 +206,141 @@
 
   .modal-side-content {
     margin-top: 20px;
+    justify-content: flex-start;
   }
 
   .modal-image {
     width: 100%;
     max-width: 100%;
     height: auto;
+    object-fit: cover;
   }
 
   .modal-image-container {
     border-radius: 20px;
+    height: 220px;
   }
 
   .modal-buttons {
-    flex-direction: column; /* 👉 chuyển lại dạng cột trên mobile */
+    flex-direction: column;
     align-items: stretch;
+    margin-top: 20px;
   }
 
   .btn {
     width: 100%;
   }
+}
+
+/* Bổ sung Material Icons */
+.material-icons {
+  font-size: 16px;
+  vertical-align: middle;
+  margin: 0 4px;
+  color: #5f6368;
+}
+
+.icon, .arrow {
+  display: inline-block;
+}
+
+.link {
+  color: #1967d2;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.label {
+  display: inline-block;
+  background-color: #e8f0fe;
+  width: fit-content;
+  color: #1967d2;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.container {
+  max-width: 700px;
+  font-family: Arial, sans-serif;
+  color: #202124;
+  line-height: 1.6;
+  padding: 40px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 12px;
+}
+
+h4 {
+  font-size: 16px;
+  margin: 20px 0 10px;
+}
+
+ol {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+ol li {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+
+
+.modal-next-step {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.qr-image {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin-top: 12px;
+}
+
+.qr-note {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
+
+.copy-link-box {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: 100%;
+  max-width: 500px;
+  align-items: center;
+}
+
+.copy-link-box input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.udid-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
