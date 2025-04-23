@@ -7,7 +7,7 @@
         <img src={image} alt={title} className="feature-img" />
         <div className="feature-content">
           <h3 className="feature-title">Gói chứng chỉ : {title}</h3>
-          <p className="feature-usd">Giá: <strong>{description}</strong></p>
+          <p className="feature-usd">Pay with:  <strong>{description}</strong></p>
           <p className="feature-vnd">
             <span className="price-sale">{price}</span>
             <span className="price-original">{originalPrice}</span>

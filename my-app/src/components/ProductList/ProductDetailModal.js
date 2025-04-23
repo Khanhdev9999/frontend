@@ -70,8 +70,9 @@ const ProductDetailModal = ({ product, onClose }) => {
                 <img src={product.image} alt={product.title} className="modal-image" />
               </div>
             </div>
+
             {step === 'default' && (
-              <div className="modal-buttons">
+              <div className="modal-buttons buttons-default">
                 <ProductActionButton onClick={() => handleBuy('current')}>
                   MUA CHO THIẾT BỊ NÀY
                 </ProductActionButton>
@@ -97,7 +98,11 @@ const ProductDetailModal = ({ product, onClose }) => {
                 <h4 style={{ color: 'green' }}>MUA CHO THIẾT BỊ KHÁC</h4>
                 <p style={{ color: 'red' }}>Vui lòng chỉ sử dụng thiết bị khác hoặc Safari để lấy UDID</p>
                 <div className="copy-link-box">
-                  <input type="text" value="https://h5m4.c19.e2-1.dev/image-video/mobile-configs/24ae90cf-2f23-43b9-871f-4b357a082dfa.mobileconfig" readOnly />
+                  <input
+                    type="text"
+                    value="https://h5m4.c19.e2-1.dev/image-video/mobile-configs/24ae90cf-2f23-43b9-871f-4b357a082dfa.mobileconfig"
+                    readOnly
+                  />
                   <button className="btn blue">COPY LINK</button>
                 </div>
                 <img src={qrOther} alt="QR Code other device" className="qr-image" />

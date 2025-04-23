@@ -50,7 +50,7 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    gap: 20px;
+    gap: 10px;
 }
 
 /* Text Section */
@@ -328,3 +328,9 @@
         margin-bottom: 10px;
     }
 }
+
+
+
+
+
+

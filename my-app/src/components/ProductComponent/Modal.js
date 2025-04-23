@@ -23,10 +23,10 @@ const Modal = ({ showModal, closeModal, modalContent, modalImage }) => {
         <div className="modal-body">
           <div className="modal-text">
             <h1 className="modal-heading">
-              Gói chứng chỉ: <span className="modal-title">{modalContent.name}</span>
+              Gói chứng chỉ: <span className="modal-title">{modalContent.title}</span>
             </h1>
             <p className="modal-subtitle">
-              Thanh toán qua PayPal hoặc USDT bằng: <span className="modal-desc">{modalContent.priceUSD}</span>
+              Thanh toán qua PayPal hoặc USDT bằng: <span className="modal-desc">{modalContent.description}</span>
             </p>
 
             <marquee
@@ -40,7 +40,7 @@ const Modal = ({ showModal, closeModal, modalContent, modalImage }) => {
             </marquee>
 
             <p className="modal-description">{modalContent.content}</p>
-            <hr className="modal-divider" />
+            {/* <hr className="modal-divider" /> */}
 
             <div className="modal-table">
               <table>
