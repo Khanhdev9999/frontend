@@ -22,7 +22,7 @@
   padding: 30px;
   margin-top: 40px;
   position: relative;
-  min-height: 500px;
+  min-height: 700px;
 }
 
 /* Layout chia đôi */
@@ -332,3 +332,12 @@
 .modal-text > * {
   margin-left: 0 !important;
 }
+
+
+.scrollable-content {
+  max-height: 700px; /* bạn có thể điều chỉnh giá trị này tùy UI */
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+

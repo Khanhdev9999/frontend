@@ -1,3 +1,4 @@
+// ProductDetailModal.jsx
 import React, { useState } from 'react';
 import './ProductDetailModal.css';
 import ProductActionButton from './ProductActionButton';
@@ -5,13 +6,9 @@ import qrCurrent from '../../assets/qr/qr-current.png';
 import qrOther from '../../assets/qr/qr-other.png';
 
 const ProductDetailModal = ({ product, onClose }) => {
-  const [step, setStep] = useState('default');
+  const [step, setStep] = useState(null);
 
   if (!product) return null;
-
-  const handleBuy = (mode) => {
-    setStep(mode);
-  };
 
   return (
     <div className="product-modal" onClick={onClose}>
@@ -65,66 +62,60 @@ const ProductDetailModal = ({ product, onClose }) => {
           {/* BÊN PHẢI */}
           <div className="modal-side-content">
             <button className="modal-close" onClick={onClose}>×</button>
-            <div className="modal-side-wrapper">
+            <div className="modal-side-wrapper scrollable-content">
               <div className="modal-image-container">
                 <img src={product.image} alt={product.title} className="modal-image" />
               </div>
-            </div>
 
-            {step === 'default' && (
-              <div className="modal-buttons buttons-default">
-                <ProductActionButton onClick={() => handleBuy('current')}>
+              {step === null && (
+                <div className="modal-next-step">
+                  <h4 style={{ color: 'darkorange' }}>MUA THỦ CÔNG BẰNG UDID</h4>
+                  <input type="text" placeholder="Điền UDID thiết bị" className="udid-input" />
+                  <input type="text" placeholder="-- Vui lòng chọn thiết bị --" className="udid-input" />
+                  <label>
+                    <input type="checkbox" /> Tôi cam kết đã kiểm tra UDID kỹ trước khi tiếp tục
+                  </label>
+                  <button className="btn orange">TẠO ĐƠN</button>
+                </div>
+              )}
+
+              {step === 'current' && (
+                <div className="modal-next-step">
+                  <h4 style={{ color: 'blue' }}>MUA CHO THIẾT BỊ NÀY</h4>
+                  <img src={qrCurrent} alt="QR Code current device" className="qr-image" />
+                  <p className="qr-note">Vui lòng quét mã bằng iPhone hoặc iPad của bạn</p>
+                  <button className="btn orange" onClick={() => setStep(null)}>Mua Thủ Công</button>
+                </div>
+              )}
+
+              {step === 'other' && (
+                <div className="modal-next-step">
+                  <h4 style={{ color: 'green' }}>MUA CHO THIẾT BỊ KHÁC</h4>
+                  <p style={{ color: 'red' }}>Vui lòng chỉ sử dụng thiết bị khác hoặc Safari để lấy UDID</p>
+                  <div className="copy-link-box">
+                    <input
+                      type="text"
+                      value="https://h5m4.c19.e2-1.dev/image-video/mobile-configs/24ae90cf-2f23-43b9-871f-4b357a082dfa.mobileconfig"
+                      readOnly
+                    />
+                    <button className="btn blue">COPY LINK</button>
+                  </div>
+                  <img src={qrOther} alt="QR Code other device" className="qr-image" />
+                  <button className="btn orange" onClick={() => setStep(null)}>Mua Thủ Công</button>
+                </div>
+              )}
+
+              <div className="modal-buttons buttons-default" style={{ marginTop: '10px' }}>
+                <ProductActionButton onClick={() => setStep('current')}>
                   MUA CHO THIẾT BỊ NÀY
                 </ProductActionButton>
-                <ProductActionButton color="green" onClick={() => handleBuy('other')}>
+                <ProductActionButton color="green" onClick={() => setStep('other')}>
                   MUA CHO THIẾT BỊ KHÁC
                 </ProductActionButton>
-                <ProductActionButton color="orange" onClick={() => handleBuy('manual')}>
-                  MUA THỦ CÔNG BẰNG UDID
-                </ProductActionButton>
               </div>
-            )}
-
-            {step === 'current' && (
-              <div className="modal-next-step">
-                <img src={qrCurrent} alt="QR Code current device" className="qr-image" />
-                <p className="qr-note">Vui lòng quét mã bằng iPhone hoặc iPad của bạn</p>
-                <button className="btn" onClick={() => setStep('default')}>Quay lại</button>
-              </div>
-            )}
-
-            {step === 'other' && (
-              <div className="modal-next-step">
-                <h4 style={{ color: 'green' }}>MUA CHO THIẾT BỊ KHÁC</h4>
-                <p style={{ color: 'red' }}>Vui lòng chỉ sử dụng thiết bị khác hoặc Safari để lấy UDID</p>
-                <div className="copy-link-box">
-                  <input
-                    type="text"
-                    value="https://h5m4.c19.e2-1.dev/image-video/mobile-configs/24ae90cf-2f23-43b9-871f-4b357a082dfa.mobileconfig"
-                    readOnly
-                  />
-                  <button className="btn blue">COPY LINK</button>
-                </div>
-                <img src={qrOther} alt="QR Code other device" className="qr-image" />
-                <button className="btn green" onClick={() => setStep('default')}>Quay lại</button>
-              </div>
-            )}
-
-            {step === 'manual' && (
-              <div className="modal-next-step">
-                <h4 style={{ color: 'darkorange' }}>MUA THỦ CÔNG BẰNG UDID</h4>
-                <input type="text" placeholder="Điền UDID thiết bị" className="udid-input" />
-                <input type="text" placeholder="-- Vui lòng chọn thiết bị --" className="udid-input" />
-                <label>
-                  <input type="checkbox" /> Tôi cam kết đã kiểm tra UDID kỹ trước khi tiếp tục
-                </label>
-                <div className="modal-buttons">
-                  <button className="btn orange">TẠO ĐƠN</button>
-                  <button className="btn" onClick={() => setStep('default')}>Quay lại</button>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -132,3 +123,5 @@ const ProductDetailModal = ({ product, onClose }) => {
 };
 
 export default ProductDetailModal;
+
+
