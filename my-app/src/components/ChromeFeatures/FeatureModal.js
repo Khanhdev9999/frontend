@@ -1,5 +1,5 @@
 "use client"
-import "./FeartureModal.css"
+import "./FeatureModal.css"
 
 function FeatureModal(props) {
   const { feature, onClose } = props
