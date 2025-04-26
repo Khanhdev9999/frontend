@@ -4,7 +4,7 @@ import Header from './components/Header';
 import FilterComponent from './components/FilterComponent/FilterComponent';
 import ProductComponent from './components/ProductComponent/ProductComponent';
 import ProductList from './components/ProductList/ProductList';
-import ChromeFeatures from './components/ChromeFeatures/ChromeFeatures';
+
 
 
 
@@ -16,7 +16,7 @@ function App() {
       <FilterComponent />
       <ProductComponent />
       <ProductList />
-      <ChromeFeatures />
+    
      
       
  
